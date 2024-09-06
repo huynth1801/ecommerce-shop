@@ -10,7 +10,7 @@ interface Query {
   isFeatured?: boolean;
 }
 
-const getProduct = async (query: Query): Promise<Product[]> => {
+const getProducts = async (query: Query): Promise<Product[]> => {
   const url = queryString.stringifyUrl({
     url: URL,
     query: {
@@ -20,8 +20,8 @@ const getProduct = async (query: Query): Promise<Product[]> => {
       isFeatured: query.isFeatured,
     },
   });
-  const res = await fetch(URL);
+  const res = await fetch(url);
   return res.json();
 };
 
-export default getProduct;
+export default getProducts;
